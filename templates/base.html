@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %} {% endblock %}
+
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="container">
+        <a href="/home" class="nav-link">Home</a>
+        <a href="/contact" class="nav-link">Contact</a>
+    </div>
+</nav>
+
+{% block body %} 
+{% endblock %}
+</body>
+
+
+{% block style %} 
+
+
+
+{% endblock %}
+<style>
+    
+    body {
+    cursor: url("/static/cursor.png"), auto;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #1a1a1a, #333);
+    padding: 1rem 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.navbar .container {
+    /* display: flex; */
+    justify-content: right;
+    right: 0%;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+.nav-link:hover {
+    background-color: #555;
+    color: #fff;
+}
+</style>
+
+
+
+
+
+
+
+<script>
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.querySelector('.slider');
+    const nextButton = document.querySelector('.next');
+    const prevButton = document.querySelector('.prev');
+    const tileWidth = document.querySelector('.news-tile').offsetWidth;
+    let index = 0;
+
+    function updateSlider() {
+        slider.style.transform = `translateX(-${index * tileWidth}px)`;
+    }
+
+    nextButton.addEventListener('click', () => {
+        if (index < slider.children.length - 4) {
+            index++;
+            updateSlider();
+        }
+    });
+
+    prevButton.addEventListener('click', () => {
+        if (index > 0) {
+            index--;
+            updateSlider();
+        }
+    });
+
+    // Optionally, adjust slider on window resize
+    window.addEventListener('resize', () => {
+        updateSlider();
+    });
+});
+
+
+
+function showExperience(companyId, button) {
+    // Hide all experience items
+    const items = document.querySelectorAll('.experience-item');
+    items.forEach(item => item.style.display = 'none');
+
+    // Show the selected experience item
+    document.getElementById(companyId).style.display = 'block';
+
+    // Remove 'active' class from all buttons
+    const buttons = document.querySelectorAll('.year-button');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    // Add 'active' class to the clicked button
+    button.classList.add('active');
+}
+
+// Show the first experience by default
+document.addEventListener('DOMContentLoaded', () => {
+    const firstButton = document.querySelector('.year-button');
+    if (firstButton) {
+        firstButton.click();
+    }
+});
+
+
+</script>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        const name = encodeURIComponent(document.getElementById('name').value);
+        const email = encodeURIComponent(document.getElementById('email').value);
+        const subject = encodeURIComponent(document.getElementById('subject').value);
+        const cc = encodeURIComponent(document.getElementById('cc').value);
+        const message = encodeURIComponent(document.getElementById('message').value);
+
+        const mailtoLink = `mailto:adhakad@hawk.iit.edu?subject=${subject}&cc=${cc}&body=Name: ${name}%0AEmail: ${email}%0AMessage:%0A${message}`;
+
+        window.location.href = mailtoLink; // Redirect to mailto link
+    });
+</script>
+
+
+
+
+</html>

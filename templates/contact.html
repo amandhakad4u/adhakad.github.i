@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+
+
+
+
+
+{% block title %}
+  <title> contact Aman</title>
+{% endblock %}
+
+
+
+
+
+
+{% block body %}
+    <section class="contact">
+        <h1>Contact Me</h1>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p><a href="https://www.google.com/maps?q=1234+Elm+Street,+Springfield,+IL,+62704" target="_blank">1234 Elm Street, Springfield, IL, 62704</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <p><a href="mailto:adhakad@hawk.iit.edu">adhakad@hawk.iit.edu</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <p><a href="tel:+13125363802">(312) 536-3802</a></p>
+            </div>
+        </div>
+        <div class="social-media">
+            <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://github.com/amandhakad4u" target="_blank" class="social-icon">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/aman-dhakad-87b3571b3/" target="_blank" class="social-icon">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+        <div class="contact-form">
+            <h2>Send Me a Message</h2>
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                
+                <label for="cc">CC (optional):</label>
+                <input type="email" id="cc" name="cc" placeholder="CC Email">
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="6" placeholder="Your Message" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block style %}
+<style>
+   
+    .contact {
+        padding: 80px 20px 50px;
+        margin-top: 10px; /* Adjust for navbar height */
+        text-align: center;
+        background-color: #222; /* Darker background for contact section */
+        margin: 20px auto;
+        max-width: 800px;
+        max-height: 800px;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+
+    }
+
+    .contact h1 {
+        font-size: 2.5rem;
+        color: #007bff;
+        margin-bottom: 20px;
+    }
+
+    .contact-info {
+        margin-bottom: 30px;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0;
+        font-size: 1.2rem;
+    }
+
+    .contact-item i {
+        font-size: 1.5rem;
+        color: #007bff;
+        margin-right: 10px;
+    }
+
+    .contact-item p {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .contact-item a {
+        color: #fff; /* White text color for links */
+        text-decoration: none;
+    }
+
+    .contact-item a:hover {
+        text-decoration: underline;
+    }
+
+    .social-media {
+        margin-top: 20px;
+    }
+
+    .social-icon {
+        display: inline-block;
+        font-size: 2rem;
+        color: #fff; /* White color for social icons */
+        margin: 0 15px;
+        transition: color 0.3s, transform 0.3s;
+    }
+
+    .social-icon:hover {
+        color: #007bff;
+        transform: scale(1.2);
+    }
+
+    .contact-form {
+        margin-top: 30px;
+        background-color: #333; /* Slightly lighter dark background for form */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .contact-form h2 {
+        font-size: 2rem;
+        color: #007bff;
+        margin-bottom: 20px;
+    }
+
+    .contact-form label {
+        display: block;
+        font-size: 1rem;
+        margin: 10px 0 5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #666;
+        border-radius: 4px;
+        background-color: #444; /* Dark background for form fields */
+        color: #fff; /* White text color for form fields */
+    }
+
+    .contact-form button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+    }
+
+    .contact-form button:hover {
+        background-color: #0056b3;
+    }
+</style>
+{% endblock %}
+
+</html>
+
